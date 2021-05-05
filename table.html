@@ -1,0 +1,253 @@
+<style>
+#myInput {
+  background-image: url('https://previews.dropbox.com/p/thumb/ABE9A-Jw1JPzEEUWy9JAvPPdqBdOlnLY4MIiBoGz0Jqa6Pv8lkd-c_6oC02BXQKpgVtaHeAuPnlDO6lxj43GsRpZVi_X-j5k5R2YpIMwQGvVnTCr1F_yB0mJrod2ZdIGGYoW-nDFLIzKi7pABTPsNegW9glzjUyv08XfpALHZZQqmokB8yIVfj-mZNJzbrHl6bMsK8Uqu7cpYgbME4V9VhmWy5y4P_dm9Tj_zOqJ8YhQ8JiRy77Ad8MS1tW2wJ0K-fQVTKAOZtsnxLYJZ51w2Zqqa3YszXVxHB-lUoyczbwLEErQ4uXaRk0RDY3aJ_5YHh1vusc-ed27Zamrnf7krg_Q_iu2_pRL4eLXN0Uam6ancA/p.png?fv_content=true&size_mode=5'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+th .fas {
+	visibility:hidden;
+}
+
+th:hover .fas {
+	visibility:visible;
+}
+
+th:hover {
+	background-color: #dadde3;
+}
+
+tr:nth-child(even) {
+  background-color: #e1f1fa
+}
+</style>
+
+<body>
+<h2>Satellite Missions Table</h2>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.."> 
+<table id="myTable">
+  <tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable(0)">Mission <span class="fas"> 🡙</span></th>
+    <th onclick="sortTable(1)">Agency <span class="fas">	🡙</span></th>
+    <th onclick="sortTable(2)">Programme <span class="fas"> 🡙</span></th>
+    <th onclick="sortTable(3)">Mission Status <span class="fas"> 🡙</span></th>
+    <th onclick="sortTable(4)">Key Instruments <span class="fas"> 🡙</span></th>
+    <th onclick="sortTable(5)">Applications <span class="fas"> 🡙</span></th>
+    <th onclick="sortTable(6)">Further Information <span class="fas"> 🡙</span></th>   
+  </tr>
+  
+  <!--Row 1-->
+  <tr>
+    <td><a href="https://earth.esa.int/eogateway/missions/cosmo-skymed" target="_blank">COSMO-SkyMed</a></td>
+    <td>TAS-I/ PSN</td>
+    <td><a href="https://earth.esa.int/web/eoportal/satellite-missions/c-missions/cosmo-skymed" target="_blank">COSMO-SkyMed</a></td>
+    <td>Active</td>
+    <td>SAR</td>
+    <td>Global land and ocean monitoring services</td>
+    <td><a href="https://earth.esa.int/web/eoportal/satellite-missions/c-missions/cosmo-skymed" target="_blank">COSMO-SkyMed</a></td>
+  </tr>
+  <!-- Row 2-->
+  <tr>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/CryoSat" target="_blank">CryoSat-1</a></td>
+    <td>ESA</td>
+    <td><a href="https://www.esa.int/Applications/Observing_the_Earth/CryoSat/ESA_s_ice_mission" target="_blank">Earth Explorer CryoSat</a></td>
+    <td>Inactive</td>
+    <td>SIRAL</td>
+    <td>Ice thickness</td>
+    <td><a href="https://www.esa.int/Applications/Observing_the_Earth/CryoSat/Instruments" target="_blank">CryoSat-1</a></td>
+  </tr>
+    <!-- Row 3-->
+  <tr>
+    <td><a href="https://earth.esa.int/web/eoportal/satellite-missions/c-missions/cryosat-2" target="_blank">CryoSat-2</a></td>
+    <td>ESA</td>
+    <td><a href="https://www.esa.int/Applications/Observing_the_Earth/The_Living_Planet_Programme" target="_blank">The Living Planet Programme</a></td>
+    <td>Active</td>
+    <td>DORIS-NG, Laser Reflectors(ESA), SIRAL</td>
+    <td>Ice thickness</td>
+    <td><a href="http://www.esa.int/Enabling_Support/Operations/CryoSat-2_operations" target="_blank">CryoSat-2</a></td>
+  </tr>
+   <!-- Row 4-->
+  <tr>
+    <td><a href="https://earth.esa.int/eogateway/missions/envisat" target="_blank">Envisat</a></td>
+    <td>ESA</td>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Envisat/Europe_s_Environment_Satellite" target="_blank">Envisat Programme </a></td>
+    <td>Inactive</td>
+    <td>AATSR, ASAR, ASAR (image mode), ASAR (wave mode), DORIS-NG, MERIS, MIPAS, MWR, RA-2, SCIAMACHY</td>
+    <td>Physical oceanography, land surface, ice and snow, atmospheric chemistry, atmospheric dynamics</td>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Envisat/Mission_overview" target="_blank">Envisat</a></td>
+  </tr>
+   <!-- Row 5-->
+  <tr>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/ERS_at_a_glance" target="_blank">ERS-1</a></td>
+    <td>ESA</td>
+    <td><a href="https://earth.esa.int/eogateway/missions/ers" target="_blank">ERS Programme </a></td>
+    <td>Inactive</td>
+    <td>AMI/SAR/Image, AMI/SAR/Wave, AMI/Scatterometer, ATSR</td>
+    <td>Earth resources, physical oceanography, land, geodesy, atmosphere</td>
+    <td><a href="https://directory.eoportal.org/web/eoportal/satellite-missions/e/ers-1" target="_blank">ERS-1</a></td>
+  </tr>
+   <!-- Row 6-->
+  <tr>
+    <td><a href="http://www.esa.int/Enabling_Support/Operations/ERS-2" target="_blank">ERS-2</a></td>
+    <td>ESA</td>
+    <td><a href="https://earth.esa.int/eogateway/missions/ers" target="_blank">ERS Programme </a></td>
+    <td>Inactive</td>
+    <td>AMI/SAR/Image, AMI/SAR/Wave, AMI/Scatterometer, ATSR</td>
+    <td>Earth resources, physical oceanography, land, geodesy, atmosphere</td>
+    <td><a href="https://directory.eoportal.org/web/eoportal/satellite-missions/e/ers-2" target="_blank">ERS-2</a></td>
+  </tr>
+   <!-- Row 7-->
+  <tr>
+    <td><a href="https://www.nasa.gov/mission_pages/Grace/" target="_blank">GRACE 1</a></td>
+    <td>NASA-JPL/DLR</td>
+    <td><a href="https://www.jpl.nasa.gov/missions/gravity-recovery-and-climate-experiment-grace" target="_blank">Gravity Recovery and Climate Experiment</a></td>
+    <td>Inactive</td>
+    <td>Super STAR electrostatic accelerometers, Optical corner reflectors, star cameras and magnetometers</td>
+    <td>Oceanography, hydrology and ice sheets, and geophysics</td>
+    <td><a href="http://www2.csr.utexas.edu/grace/" target="_blank">GRACE 1</a></td>
+  </tr>
+   <!-- Row 8-->
+  <tr>
+    <td><a href="https://www.nasa.gov/mission_pages/icesat/" target="_blank">ICESat-1</a></td>
+    <td>NASA</td>
+    <td><a href="https://eospso.nasa.gov/" target="_blank">NASA's Earth Observing System</a></td>
+    <td>Inactive</td>
+    <td>Ice sheet mass balance, cloud and aerosol heights, land topography and vegetation characteristics</td>
+    <td></td>
+    <td><a href="https://icesat.gsfc.nasa.gov/icesat/" target="_blank">ICESat-1</a></td>
+  </tr>
+    <!-- Row 9-->
+  <tr>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1/Introducing_Sentinel-1" target="_blank"></a>Sentinel-1</td>
+    <td>ESA</td>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Europe_s_Copernicus_programme" target="_blank">Copernicus Programme</a></td>
+    <td>Active</td>
+    <td>Geoscience Laser Altimeter System (GLAS)</td>
+    <td>Ice sheet mass balance, cloud and aerosol heights, land topography and vegetation characteristics</td>
+    <td><a href="https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1" target="_blank">Sentinel-1</a></td>
+  </tr>
+    <!-- Row 10-->
+  <tr>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1/Introducing_Sentinel-1" target="_blank"></a>Sentinel-1</td>
+    <td>ESA</td>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Europe_s_Copernicus_programme" target="_blank">Copernicus Programme</a></td>
+    <td>Active</td>
+    <td>C-Band SAR</td>
+    <td>Continuity of C-Band SAR data for operational use</td>
+    <td><a href="https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-1" target="_blank">Sentinel-1</a></td>
+  </tr>
+    <!-- Row 11-->
+  <tr>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Introducing_Sentinel-2" target="_blank"></a>Sentinel-2</td>
+    <td>ESA</td>
+    <td><a href="http://www.esa.int/Applications/Observing_the_Earth/Copernicus/Europe_s_Copernicus_programme" target="_blank">Copernicus Programme</a></td>
+    <td>Active</td>
+    <td>C-Band SAR</td>
+    <td>Supporting land monitoring related services</td>
+    <td><a href="https://directory.eoportal.org/web/eoportal/satellite-missions/c-missions/copernicus-sentinel-2" target="_blank">Sentinel-2</a></td>
+  </tr>
+</table>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+
+function myFunction() {
+  var input, filter, table, tr, td, i, t;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    var filtered = false;
+    var tds = tr[i].getElementsByTagName("td");
+    for(t=0; t<tds.length; t++) {
+        var td = tds[t];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            filtered = true;
+          }
+        }     
+    }
+    if(filtered===true) {
+        tr[i].style.display = '';
+    }
+    else {
+        tr[i].style.display = 'none';
+    }
+  }
+}
+</script>
